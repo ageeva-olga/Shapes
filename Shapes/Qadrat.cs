@@ -15,7 +15,7 @@ namespace Shapes
         {
             get
             {
-                return base.Length;
+                return (base.Length)*4;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Shapes
         {
             get
             {
-                return Length * Length;
+                return (Length/4) * (Length/4);
             }
         }
     }
