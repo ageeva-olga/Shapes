@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    interface ISquare
+    public interface ISquare
     {
         double Square { get; }
     }

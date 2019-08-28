@@ -23,7 +23,7 @@ namespace Shapes
         {
             get
             {
-                return (Length/4) * (Length/4);
+                return (Length/4) * (Length/4) ;
             }
         }
     }
