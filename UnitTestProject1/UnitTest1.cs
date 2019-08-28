@@ -39,5 +39,29 @@ namespace UnitTestProject1
             var qadrat = new Qadrat(line);
             Assert.AreEqual(qadrat.Length, 8);
         }
-    }
+            [TestMethod]
+            public void SquCircleTest()
+            {
+                var circle = new Circle(1, 3, 5);
+                Assert.AreEqual(circle.Square, Math.PI * 25);
+            }
+            [TestMethod]
+            public void SquTriangleTest()
+            {
+                var p1 = new Point(0, 0);
+                var p2 = new Point(3, 0);
+                var p3 = new Point(3, 4);
+                var triangle = new Triangle(p1, p2, p3);
+                Assert.AreEqual(triangle.Square, 6);
+            }
+            [TestMethod]
+            public void SquQadratTest()
+            {
+                var p1 = new Point(1, 0);
+                var p2 = new Point(3, 0);
+                var line = new Line(p1, p2);
+                var qadrat = new Qadrat(line);
+                Assert.AreEqual(qadrat.Square, 4);
+            }
+        }
 }
