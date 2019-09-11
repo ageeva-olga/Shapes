@@ -19,6 +19,19 @@ namespace Shapes
             EndPoint = point2;
         }
         public Line() { }
+        public Line(string path)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Line));
+            using (var streamReader = new StreamReader(path))
+            {
+                using (var xmlReader = XmlReader.Create(streamReader))
+                {
+                    var newLine = (Line)xmlSerializer.Deserialize(xmlReader);
+                    StartPoint = newLine.StartPoint;
+                    EndPoint = newLine.EndPoint; 
+                }
+            }
+        }
         public virtual double Length
         {
             get

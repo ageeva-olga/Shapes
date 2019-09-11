@@ -28,7 +28,18 @@ namespace Shapes
             LineBC = bc;
             LineCA = ca;
         }
-        public async void Save(string path)
+        public Triangle(string path)
+        {
+            using (var streamReader = new StreamReader(path))
+            {
+                var text = streamReader.ReadToEnd();
+                var newTriangle = JsonConvert.DeserializeObject<Triangle>(text);
+                LineAB = newTriangle.LineAB;
+                LineBC = newTriangle.LineBC;
+                LineCA = newTriangle.LineCA;
+            }
+        }
+        public void Save(string path)
         {
             string json = JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
             using (var writetext = new StreamWriter(path))
@@ -36,12 +47,6 @@ namespace Shapes
                 writetext.WriteLine(json);
             }
         }
-
-        private Task<JArray> GetHistory()
-        {
-            throw new NotImplementedException();
-        }
-
         public double Length
         {
             get

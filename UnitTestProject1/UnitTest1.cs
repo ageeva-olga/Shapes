@@ -102,6 +102,8 @@ namespace UnitTestProject1
             var p2 = new Point(3, 4);
             var line1 = new Line(p1, p2);
             line1.Save(filePath);
+            var line2 = new Line(filePath);
+            Assert.AreEqual(line2.Length, line1.Length);
         }
 
         [TestMethod]
@@ -112,7 +114,10 @@ namespace UnitTestProject1
             var p2 = new Point(3, 0);
             var p3 = new Point(3, 4);
             var triangle = new Triangle(p1, p2, p3);
-            triangle.Save(filePath); 
+            triangle.Save(filePath);
+            var triangle2 = new Triangle(filePath);
+            Assert.AreEqual(triangle2.Length, triangle.Length);
+            Assert.AreEqual(triangle2.Square, triangle.Square);
         }
     }
 }
