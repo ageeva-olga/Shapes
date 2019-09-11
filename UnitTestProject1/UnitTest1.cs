@@ -103,5 +103,16 @@ namespace UnitTestProject1
             var line1 = new Line(p1, p2);
             line1.Save(filePath);
         }
+
+        [TestMethod]
+        public void SaveTriangle()
+        {
+            var filePath = Path.Combine(Path.GetTempPath(), "triangle1.txt");
+            var p1 = new Point(0, 0);
+            var p2 = new Point(3, 0);
+            var p3 = new Point(3, 4);
+            var triangle = new Triangle(p1, p2, p3);
+            triangle.Save(filePath); 
+        }
     }
 }
